@@ -15,6 +15,14 @@
     display: block;
 }
 
+.modal-header {
+    padding: 1rem;
+}
+
+.modal-content {
+    padding: 0 1rem;
+}
+
 .blackout {
     display: none;
     width: 100vw;

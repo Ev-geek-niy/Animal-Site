@@ -1,0 +1,61 @@
+.slider {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background: #6e60d8;
+
+}
+
+.slider .slide {
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider .slide.active {
+    opacity: 1;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f9fdfa;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    align-content: center;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+}
+
+.slider-btn.prev {
+    left: 1rem;
+}
+
+.slider-btn.next {
+    right: 1rem;
+}
+
+.slider-counter {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.slider-counter > .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #33cc68;
+}
+
+.slider-counter > .dot.active {
+    background: #f9fdfa;
+}
