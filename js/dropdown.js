@@ -1,5 +1,6 @@
-document
-  .querySelector(".dropdown-header")
-  .addEventListener("click", function () {
-    this.closest(".dropdown").classList.toggle("open");
+document.querySelectorAll(".dropdown-header").forEach(function (button) {
+  button.addEventListener("click", function () {
+    const dropdown = this.closest(".dropdown");
+    dropdown.classList.toggle("open");
   });
+});
