@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="./css/variables.css" />
         <link rel="stylesheet" href="./css/style.css" />
         <link rel="stylesheet" href="./css/dropdown.css" />
+        <link rel="stylesheet" href="./css/modal.css" />
         <title>Document</title>
     </head>
     <body>
@@ -41,24 +42,33 @@
                 <div>Галерея</div>
                 <div>Поддержка</div>
             </div>
-            <div class="content"></div>
-            <div class="footer"></div>
-        </div>
-        <!--<div class="container">
-            <div class="box-l box-border">
-                <div class="dropdown">
-                    <div class="dropdown-header">Название</div>
-                    <div class="dropdown-body">
-                        <div class="dropdown-list">
-                            <div class="dropdown-item">Первый элемент</div>
-                            <div class="dropdown-item">Второй элемент</div>
-                            <div class="dropdown-item">Третий элемент</div>
-                            <div class="dropdown-item">Четвертый элемент</div>
-                        </div>
-                    </div>
+            <div class="content">
+                <div
+                    class="modelOpenBtn"
+                    style="
+                        width: 125px;
+                        height: 30px;
+                        background-color: var(--primary);
+                    "
+                >
+                    Нажми на меня
                 </div>
             </div>
-        </div>-->
+            <div class="footer"></div>
+        </div>
+        <div class="blackout"></div>
+        <div class="modal">
+            <div class="modal-layout">
+                <div class="modal-header">Заголовок</div>
+                <div class="modal-content">
+                    <ul>
+                        <li>Кот 1</li>
+                        <li>Кот 2</li>
+                        <li>Кот 3</li>
+                    </ul>
+                </div>
+            </div>
     </body>
     <script src="./js/dropdown.js"></script>
+    <script src="./js/modal.js"></script>
 </html>
