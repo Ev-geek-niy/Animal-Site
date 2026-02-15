@@ -8,21 +8,29 @@ sliderFileInput.onchange = (e) => addImage(e.target.files[0]);
 const sliderCarousel = document.querySelector('.slider-carousel');
 let slides = null;
 let sliderCounter = null;
-let dots = null;
+let thumbnails = null;
 
 document.addEventListener('DOMContentLoaded', () => setupSlider())
 
-function setupSlider() {
+function setupSlider(startSlideIndex = 0) {
   slides = [...document.querySelectorAll(".slide")];
   sliderCounter = document.querySelector(".slider-counter");
 
+  setupSelector(slides.findIndex(slide => slide.classList.contains('active')))
+}
+
+function setupSelector(startThumbnailIndex = 0) {
   sliderCounter.innerHTML = "";
-  slides.forEach(slide => {
-    createSliderDot(sliderCounter)
+  slides.forEach((slide, index) => {
+    createThumbnail(sliderCounter, slide.firstElementChild, index)
   })
 
-  dots = document.querySelectorAll(".dot");
-  dots[0].classList.add("active");
+  thumbnails = document.querySelectorAll(".thumbnail");
+  thumbnails.forEach(thumbnail =>
+      thumbnail.addEventListener("click", () => handleThumbnailClick(thumbnail.dataset.index))
+  )
+
+  thumbnails[startThumbnailIndex].classList.add("active");
 }
 
 function prevSlide() {
@@ -35,10 +43,10 @@ function prevSlide() {
   const prevSlide = slides[prevSlideIndex];
 
   prevSlide.classList.add("active");
-  dots[prevSlideIndex].classList.add("active");
+  thumbnails[prevSlideIndex].classList.add("active");
 
   currentSlide.classList.remove("active");
-  dots[currentSlideIndex].classList.remove("active");
+  thumbnails[currentSlideIndex].classList.remove("active");
 }
 
 function nextSlide() {
@@ -51,14 +59,17 @@ function nextSlide() {
   const nextSlide = slides[nextSlideIndex];
 
   nextSlide.classList.add("active");
-  dots[nextSlideIndex].classList.add("active");
+  thumbnails[nextSlideIndex].classList.add("active");
 
   currentSlide.classList.remove("active");
-  dots[currentSlideIndex].classList.remove("active");
+  thumbnails[currentSlideIndex].classList.remove("active");
 }
 
-function createSliderDot(counterDiv) {
-  counterDiv.insertAdjacentHTML("beforeend", `<div class="dot"></div>`);
+function createThumbnail(counterDiv, imageElement, index = 0) {
+  counterDiv.insertAdjacentHTML("beforeend", `
+    <div class="thumbnail" data-index="${index}">
+        <img class="thumbnail-img" src="${imageElement.src}"/>
+    </div>`);
 }
 
 function autoplay() {
@@ -74,4 +85,12 @@ function addImage(file) {
              alt="Ваше изображение"/>
     </div>`);
   setupSlider()
+}
+
+function handleThumbnailClick(index = 0) {
+  thumbnails.forEach(thumbnail => thumbnail.classList.remove('active'));
+  thumbnails[index].classList.add('active');
+
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
 }
