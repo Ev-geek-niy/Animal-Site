@@ -48,11 +48,96 @@
                    accept="image/*"
                    class="slider-add-image-btn mt-1"/>
         </div>
+
+        <div class="animal-section">
+            <div class="animal-card modal-btn" data-id="stepan-modal">
+                <div class="animal-card-header">
+                    <img src="./static/images/cat-test.avif" alt="Котик">
+                    <span class="animal-info__title">Степан</span>
+                </div>
+                <div class="animal-info">
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Дата рождения: </span><span class="animal-info-value">09.04.2022</span>
+                    </div>
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Порода: </span><span class="animal-info-value">какая-то</span>
+                    </div>
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Нравится: </span><span class="animal-info-value">подушка, игрушечный мышонок</span>
+                    </div>
+                </div>
+            </div>
+            <div class="animal-card modal-btn" data-id="oleg-modal">
+                <div class="animal-card-header">
+                    <img src="./static/images/cat-test2.avif" alt="Котик">
+                    <span class="animal-info__title">Олег</span>
+                </div>
+                <div class="animal-info">
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Дата рождения: </span><span class="animal-info-value">22.08.2025</span>
+                    </div>
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Порода: </span><span class="animal-info-value">какая-то</span>
+                    </div>
+                    <div class="animal-info-data">
+                        <span class="animal-info-type">Нравится: </span><span class="animal-info-value">подушка, игрушечный мышонок</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animal-add-btn modal-btn" data-id="create-animal-form">
+                Добавить своего друга
+            </div>
+        </div>
     </div>
     <div class="footer"></div>
+    <div class="modal" id="create-animal-form">
+        <div class="modal-layout">
+            <div class="modal-header">Форма для заполнения</div>
+            <form id="animal-form" action="/" method="post">
+                <div class="modal-content">
+                    <label>
+                        Имя:
+                        <input type="text" placeholder="Имя питомца"/>
+                        <span class="error">Поле не может быть пустым</span>
+                    </label>
+                    <label>
+                        Дата рождения:
+                        <input type="date"/>
+                        <span class="error">Указана неправильная дата</span>
+                    </label>
+                    <label>
+                        Нравится:
+                        <input type="text"/>
+                        <span class="error">Поле не может быть пустым</span>
+                    </label>
+                    <input type="submit" value="Сохранить"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="stepan-modal">
+        <div class="modal-layout">
+            <div class="modal-header">Степан</div>
+            <div class="modal-content">
+                Степан — серьезный британский короткошерстный кот с философским взглядом и аристократическими манерами. Его плюшевая серо-голубая шерсть и янтарные глаза создают образ вдумчивого интеллектуала кошачьего мира.
+                Степан предпочитает размеренный образ жизни: утренний осмотр территории, дневная медитация на подоконнике и вечернее наблюдение за хозяевами с высоты книжной полки. Его любимые занятия — сидеть в коробках, судить людей взглядом и игнорировать дорогие игрушки в пользу обычных фантиков.
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="oleg-modal">
+        <div class="modal-layout">
+            <div class="modal-header">Степан</div>
+            <div class="modal-content">
+                Олег — харизматичный полосатый кот с неиссякаемым оптимизмом и заразительной улыбкой. Его фирменное выражение морды — широкая довольная ухмылка, которая появляется по любому поводу.
+                Олег — душа компании и местная знаменитость района. Он обожает гостей, громко мурлычет и обладает особым талантом выпрашивать угощения одним только взглядом и своей фирменной улыбкой. Невозможно сердиться на этого усатого оптимиста!
+            </div>
+        </div>
+    </div>
 </div>
 <div class="blackout"></div>
 </body>
+<script src="./js/site.js"></script>
 <script src="./js/dropdown.js"></script>
 <script src="./js/modal.js"></script>
 <script src="./js/slider.js"></script>

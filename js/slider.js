@@ -30,7 +30,7 @@ function setupSelector(startThumbnailIndex = 0) {
       thumbnail.addEventListener("click", () => handleThumbnailClick(thumbnail.dataset.index))
   )
 
-  thumbnails[startThumbnailIndex].classList.add("active");
+  thumbnails[startThumbnailIndex].classList.add("highlight");
 }
 
 function prevSlide() {
@@ -43,10 +43,10 @@ function prevSlide() {
   const prevSlide = slides[prevSlideIndex];
 
   prevSlide.classList.add("active");
-  thumbnails[prevSlideIndex].classList.add("active");
+  thumbnails[prevSlideIndex].classList.add("highlight");
 
   currentSlide.classList.remove("active");
-  thumbnails[currentSlideIndex].classList.remove("active");
+  thumbnails[currentSlideIndex].classList.remove("highlight");
 }
 
 function nextSlide() {
@@ -59,10 +59,10 @@ function nextSlide() {
   const nextSlide = slides[nextSlideIndex];
 
   nextSlide.classList.add("active");
-  thumbnails[nextSlideIndex].classList.add("active");
+  thumbnails[nextSlideIndex].classList.add("highlight");
 
   currentSlide.classList.remove("active");
-  thumbnails[currentSlideIndex].classList.remove("active");
+  thumbnails[currentSlideIndex].classList.remove("highlight");
 }
 
 function createThumbnail(counterDiv, imageElement, index = 0) {
@@ -88,8 +88,8 @@ function addImage(file) {
 }
 
 function handleThumbnailClick(index = 0) {
-  thumbnails.forEach(thumbnail => thumbnail.classList.remove('active'));
-  thumbnails[index].classList.add('active');
+  thumbnails.forEach(thumbnail => thumbnail.classList.remove('highlight'));
+  thumbnails[index].classList.add('highlight');
 
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
