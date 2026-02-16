@@ -50,6 +50,11 @@ h1 {
     background-color: var(--bg);
 }
 
+.footer {
+    height: 6rem;
+    background-color: var(--primary);
+}
+
 .slider-section {
     display: flex;
     flex-direction: column;
@@ -61,12 +66,20 @@ h1 {
 }
 
 .animal-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.animal-section-content {
     padding-top: 3rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
+    gap: 1rem;
 }
 
 .animal-card {
@@ -127,11 +140,8 @@ h1 {
     border-radius: 12px;
     text-align: center;
     align-content: center;
-    position: absolute;
-    bottom: -5rem;
-    left: 50%;
-    transform: translateX(-50%);
     cursor: pointer;
+    display: block;
 }
 
 label > .error {
