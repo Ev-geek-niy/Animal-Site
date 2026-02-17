@@ -1,55 +1,22 @@
-const createAnimalForm = document.getElementById("animal-form");
-createAnimalForm.addEventListener("submit", handleSubmit)
-function handleSubmit(event) {
-    event.preventDefault();
-    if (validateForm(createAnimalForm))
-        this.innerHTML = "Успешно добавлен в базу!"
-}
+const pageTitle = localStorage.getItem('header-title') ?? "Главная";
+const selectedTitleIndex = +localStorage.getItem('selected-title-index') ?? 0;
+const headerTitlesElement = document.querySelectorAll('.header-title');
+const pageTitleElement = document.querySelector('.page-title')
 
-function validateForm(formNode) {
-    const { elements } = formNode;
-    Array.from(elements)
-        .filter(x => x.type !== 'submit')
-        .forEach(element => validateField(element))
+pageTitleElement.innerText = pageTitle
 
-    if (document.querySelectorAll('.show-error ').length > 0)
-        return false;
-
-    return true;
-}
-
-function validateField(element) {
-    switch (element.type) {
-        case 'text':
-            if (!validateTextField(element.value))
-                element.parentElement.querySelector('.error').classList.add('show-error')
-            else
-                element.parentElement.querySelector('.error').classList.remove('show-error')
-            break;
-        case 'date':
-            if (!validateDate(element.value))
-                element.parentElement.querySelector('.error').classList.add('show-error')
-            else
-                element.parentElement.querySelector('.error').classList.remove('show-error')
-            break;
+headerTitlesElement.forEach((headerTitle, index) => {
+    if (index === selectedTitleIndex) {
+        headerTitle.classList.add('header-title-selected');
     }
-}
+    headerTitle.addEventListener('click', (e) => {
+        headerTitlesElement.forEach(x => x.classList.remove('header-title-selected'));
+        headerTitle.classList.add('header-title-selected');
 
-function validateTextField(value) {
-    if (value === '' || value == null)
-        return false;
+        const text = headerTitle.innerText;
+        localStorage.setItem('header-title', text);
+        localStorage.setItem('selected-title-index', index)
 
-    return true;
-}
-
-function validateDate(value) {
-    if (value === '' || value == null)
-        return false;
-
-    const date = new Date(value);
-
-    if (date > new Date())
-        return false;
-
-    return true;
-}
+        pageTitleElement.innerText = text
+    })
+})
