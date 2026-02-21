@@ -4,7 +4,13 @@
     height: 300px;
     background: #6e60d8;
     border-radius: 12px;
+}
 
+@media (max-width: 480px) {
+    .slider {
+        width: 350px;
+        height: 200px;
+    }
 }
 
 .slider .slide {
@@ -69,6 +75,12 @@
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
+}
+
+@media (max-width: 480px) {
+    .slider-counter {
+        bottom: 0;
+    }
 }
 
 .slider-counter > .dot {
