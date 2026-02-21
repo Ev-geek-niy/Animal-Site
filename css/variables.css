@@ -4,7 +4,9 @@
     --base-border: #7d7d7d;
     --primary: #faedcd;
     --secondary: #d4a373;
-    --accent: #ccd5ae;
-    --accent2: #e9edc9;
+    --accent: #e9edc9;
+    --accent2: #ccd5ae;
     --inactive-text: #b0aaaa;
+    --btn-white: #fff;
+    --btn-white-active: #f4f4f4;
 }

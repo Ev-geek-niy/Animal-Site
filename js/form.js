@@ -1,10 +1,18 @@
+const createFormButton = document.querySelector('.form-btn')
 const createAnimalForm = document.getElementById("animal-form");
+const animalFormHTML = createAnimalForm.innerHTML
+
 createAnimalForm.addEventListener("submit", handleSubmit)
+createFormButton.addEventListener("click", handleCreateFormClick)
 
 function handleSubmit(event) {
     event.preventDefault();
     if (validateForm(createAnimalForm))
         this.innerHTML = "Успешно добавлен в базу!"
+}
+
+function handleCreateFormClick(event) {
+    restoreFormHTML()
 }
 
 function validateForm(formNode) {
@@ -53,4 +61,8 @@ function validateDate(value) {
         return false;
 
     return true;
+}
+
+function restoreFormHTML() {
+    createAnimalForm.innerHTML = animalFormHTML;
 }

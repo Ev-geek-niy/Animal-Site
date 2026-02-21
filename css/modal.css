@@ -5,17 +5,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    border: 1px solid black;
-    background-color: white;
     z-index: 100;
     padding: 1rem;
 }
 
 .modal.active {
     display: block;
-}
-
-.modal-header {
 }
 
 .modal-content {
@@ -40,4 +35,20 @@
 
 .blackout.active {
     display: block;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.btn-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    padding: 0.5rem;
+    background-color: var(--btn-white);
+}
+
+.btn-close:active {
+    background-color: var(--btn-white-active);
 }

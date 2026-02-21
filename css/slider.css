@@ -31,18 +31,31 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #f9fdfa;
-    width: 2rem;
-    height: 2rem;
     border-radius: 1rem;
     align-content: center;
     text-align: center;
     cursor: default;
     user-select: none;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.slider-btn.prev:before {
+    content: "←"
 }
 
 .slider-btn.prev {
     left: 1rem;
+}
+
+.slider-btn:hover {
+    color: var(--accent);
+    cursor: pointer;
+    user-select: none;
+}
+
+.slider-btn.next:before {
+    content: "→"
 }
 
 .slider-btn.next {
