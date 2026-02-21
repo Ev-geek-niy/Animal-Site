@@ -89,13 +89,13 @@ label > input {
 }
 
 .header-title {
-    color: var(--inactive-text);
+    color: var(--inactive-text) !important;
     cursor: pointer;
     user-select: none;
 }
 
 .header-title-selected {
-    color: var(--text)
+    color: var(--text) !important;
 }
 
 .content {
