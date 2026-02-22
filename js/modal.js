@@ -6,12 +6,18 @@ document.querySelectorAll(".modal-btn").forEach(modal => {
   modal.addEventListener("click", function () {
     openModal(modal.dataset.id);
   });
+  modal.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      modal.click()
+    }
+  });
 })
 
 document.querySelectorAll(".btn-close").forEach(btn => {
   btn.addEventListener("click", function () {
     closeModal()
-  })
+  });
 })
 
 function openModal(modalId) {
@@ -33,4 +39,20 @@ function closeModal() {
   blackout.classList.remove("active");
   body.classList.remove("no-scroll");
   blackout.removeEventListener("click", handleBodyClick);
+}
+
+function closeModalByKey(event, element) {
+  element.addEventListener('keydown', (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      closeModal();
+    }
+  });
+}
+
+function trapFocus(modal) {
+  const focusElements = modal.querySelector('.btn-close')
+
+  focusElements.forEach(focusElement => {
+    focusElement.addEventListener('keydown', closeModalByKey(event, focusElement));
+  });
 }

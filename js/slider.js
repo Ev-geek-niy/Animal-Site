@@ -67,9 +67,9 @@ function nextSlide() {
 
 function createThumbnail(counterDiv, imageElement, index = 0) {
   counterDiv.insertAdjacentHTML("beforeend", `
-    <div class="thumbnail" data-index="${index}">
+    <button class="thumbnail" data-index="${index}" tabindex="0">
         <img class="thumbnail-img" src="${imageElement.src}"/>
-    </div>`);
+    </button>`);
 }
 
 function autoplay() {
